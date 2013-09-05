@@ -4,7 +4,13 @@ The following PowerShell scripts have been conjured up during my research into t
 
 For more information about the scripts and their usage check out my site www.roo7break.co.uk
 
+### Table of Contents
+- [Auto-Gpppassword.ps1](#autogpp)
+- [Firewall Egress testing](#egress)
+
+<a name="autogpp"/>
 #### Auto-Gpppassword.ps1
+
 **Version:** v1.0
 
 **Info**
@@ -40,7 +46,9 @@ Below are links to useful references regarding GPP exploitation that helped me d
 * http://rewtdance.blogspot.co.uk/2012/06/exploiting-windows-2008-group-policy.html
 * http://dev.metasploit.com/redmine/projects/framework/repository/entry/modules/post/windows/gather/credentials/gpp.rb
 
+<a name="egress"/>
 #### Firewall Egress testing
+
 **Supported Protocols**
 
  - TCP
