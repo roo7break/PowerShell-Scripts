@@ -4,7 +4,7 @@ The following PowerShell scripts have been conjured up during my research into t
 
 For more information about the scripts and their usage check out my site www.roo7break.co.uk
 
-### Table of Contents
+### List of Scripts
 - [Auto-Gpppassword.ps1](#autogpp)
 - [Firewall Egress testing](#egress)
 
