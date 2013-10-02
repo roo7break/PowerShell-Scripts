@@ -7,7 +7,7 @@ Firewall Egress testing
  - UDP (TBA)
  - HTTP/S (TBA)
 
-##### FireBuster.ps1
+##FireBuster.ps1
 
 **Version:** v1.0
 
@@ -22,9 +22,19 @@ Example:
 
 > .\FireBuster.ps1 192.168.193.130 3000-3010
 
-##### FireListener.ps1
 
-**Version:** v0.1
+##FireListener.ps1
+
+
+**Version:** v0.2
+
+**Changelog:**
+
+***v0.2*** - Improvements
+
+Thanks to Nikhil Mittal who helped to resolve some stability issues that the previous version had.
+
+***v0.1*** - First release
 
 **Info**
 
@@ -33,8 +43,6 @@ Since, I wrote FireBuster in PowerShell it would only make sense to try and impl
 Unlike FireBuster, the listening wasn’t easy as PowerShell isnt that flexible with multi threading (or to put it in another way, I found very hard Open-mouthed smile). So, I would say FireListener is not stable, but works.
 
 I would also urge you not to run more than 10 ports at the same time. For some reason I am not aware of, the memory consumption shoots up with each background process (each port is a separate process).
-
-**WARNING:** FireListener.ps1 has some problems (see below). I wrote FireListener as a proof-of-concept. It did introduce me to multi-threading in PowerShell.
 
 **Usage**
 
@@ -46,15 +54,9 @@ Example
 
 > .\FireListener.ps1 3000-3010.
 
-Issues that need to be resolved
-
- - Once client data is received over a port, the open socket closes.
- - Start-Job information that is being displayed needs to be hidden
- - Memory consumption to be reduced. 
-
 I am also including a Python based listener that you can run on your listening server.
 
-##### pyfirelistener.py
+##pyfirelistener.py
 **Version:** v1.0
 
 **Info**
