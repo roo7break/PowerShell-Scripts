@@ -4,9 +4,9 @@
 FireListener is a PowerShell script that supports FireBuster in egress testing. FireListener will allow you to
 host a listening server to which FireBuster can send packets to. 
 
-Author(s): Nikhil Sreekumar (@roo7break & Nikhil Mittal (@nikhil_mitt)
+Author(s): Nikhil Sreekumar (@roo7break) & Nikhil Mittal (@nikhil_mitt)
 License: GNU GPL v2
-Version: v0.2
+Version: v1.0
 
 .Description
 FireListener is a PowerShell script that supports FireBuster in egress testing. FireListener will allow you to
@@ -25,6 +25,8 @@ https://www.trustedsec.com/february-2012/new-tool-release-egress-buster-find-out
 http://poshcode.org/542
 
 .Changelog:
+1.0: Stable version released. Thanks to Nikhil Mittal (@nikhil_mitt) for providing stability fixes.
+
 0.2:
 - Ctrl+C implemented and ports remain open after first data is received.
 - Thanks to Nikhil Mittal (@nikhil_mitt) for his valuable inputs.
@@ -83,7 +85,8 @@ function FireListener{
 			{
 				Write-Host "Exiting and shutting down the jobs. No turning back...." -Background DarkRed
 				Sleep 2
-				Stop-Process -Id $PID
+				Get-Job | Stop-Job 
+				Get-Job | Remove-Job
 				break;
 			}
 			# end code snip
@@ -91,16 +94,12 @@ function FireListener{
 			foreach ($job1 in $jobs)
 			{ 
 				Start-Sleep -Seconds 4
-							
-				Get-Job | Receive-Job
 				
 					if ($job1.state -eq "Completed")
 					{
-						for($ports=$lowport; $ports -le $highport; $ports++)
-						{
-							$job1 = start-job -ScriptBlock $socketblock -ArgumentList $ports
-							Remove-Job -state Completed | Get-Job 
-						}
+						$port = $job1.Name
+						start-job -ScriptBlock $socketblock -ArgumentList $port -Name $port
+						Get-Job | Remove-Job
 					}
 			}
 		}
