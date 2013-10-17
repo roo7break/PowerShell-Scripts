@@ -26,9 +26,13 @@ Example:
 ##FireListener.ps1
 
 
-**Version:** v0.2
+**Version:** v1.0
 
 **Changelog:**
+
+***1.0*** - Stable version released. 
+
+Thanks to Nikhil Mittal (@nikhil_mitt) for providing stability fixes.
 
 ***v0.2*** - Improvements
 
